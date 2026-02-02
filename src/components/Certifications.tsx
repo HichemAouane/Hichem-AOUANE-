@@ -3,7 +3,15 @@
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 
-const certifications = [
+interface Certification {
+    name: string;
+    issuer: string;
+    year: string;
+    logo: string;
+    transparentBg?: boolean;
+}
+
+const certifications: Certification[] = [
     {
         name: "Elastic Security for SIEM (On-Demand) Trainning",
         issuer: "ElasticSearch",
@@ -65,10 +73,7 @@ export default function Certifications() {
                             transition={{ delay: index * 0.1 }}
                             className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors flex items-center gap-4"
                         >
-                            <div className={`w-12 h-12 rounded-full p-1 flex items-center justify-center overflow-hidden shrink-0 ${
-                                // @ts-ignore
-                                cert.transparentBg ? '' : 'bg-white'
-                                }`}>
+                            <div className={`w-12 h-12 rounded-full p-1 flex items-center justify-center overflow-hidden shrink-0 ${cert.transparentBg ? '' : 'bg-white'}`}>
                                 <img
                                     src={cert.logo}
                                     alt={`${cert.issuer} logo`}
