@@ -3,8 +3,16 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
+interface Experience {
+    company: string;
+    role: string;
+    period: string;
+    location: string;
+    logo: string;
+    transparentBg?: boolean;
+}
 
-const experiences = [
+const experiences: Experience[] = [
     {
         company: "SETIRAIL",
         role: "Administration Réseaux et sécurité - Stage",
@@ -88,8 +96,7 @@ export default function Experience() {
                                     <div className="flex flex-col gap-4">
                                         {/* Top row: Logo + Role/Company */}
                                         <div className="flex items-start gap-3 md:gap-4">
-                                            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full p-1 flex items-center justify-center overflow-hidden shrink-0 ${exp.transparentBg ? '' : 'bg-white'
-                                                }`}>
+                                            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full p-1 flex items-center justify-center overflow-hidden shrink-0 ${exp.transparentBg ? '' : 'bg-white'}`}>
                                                 <img
                                                     src={exp.logo}
                                                     alt={`${exp.company} logo`}
